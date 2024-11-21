@@ -1,22 +1,16 @@
 # Raspberry Pi Pico Morse Code Blinker
 
 ## Description
-This project is a "Hello World" for the Raspberry Pi Pico, showcasing the RP2040 microcontroller's **Programmable I/O (PIO)** feature. The onboard or external LED blinks in **Morse code**, spelling "HELLO WORLD". It’s designed to help beginners understand embedded systems programming using the Pico SDK.
+This project is a "Hello World" for the Raspberry Pi Pico, demonstrating basic LED control using **MicroPython**. The onboard or external LED blinks in **Morse code**, spelling "HELLO WORLD". It’s designed to introduce beginners to embedded systems programming and Morse code logic using the Raspberry Pi Pico.
 
 ## Requirements
-- Raspberry Pi Pico.
-- C/C++ toolchain and Pico SDK.
+- Raspberry Pi Pico with MicroPython installed.
 - Micro USB cable.
-- External LED and resistor (if not using onboard LED).
+- [Thonny IDE](https://thonny.org/) (or any text editor supporting MicroPython).
 
 ## Project Structure
 ```plaintext
 src/
-├── main.c            # Entry point of the program
-├── morse_code.c      # Morse code logic and PIO control
-├── morse_code.h      # Header file for Morse code functions
-├── morse.pio         # PIO assembly program for LED control
-CMakeLists.txt        # Build configuration file for CMake
-Makefile              # Simplified build process
-README.md             # Project documentation
-
+└── main.py          # Main script containing Morse code logic
+LICENSE              # License file for the project
+README.md            # Project documentation
