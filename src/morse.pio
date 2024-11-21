@@ -1,0 +1,26 @@
+; Morse code PIO program
+; Blinks an LED for a duration specified via TX FIFO
+
+.program morse
+.side_set 1 opt
+
+; Entry point
+start:
+    pull        block       side 0    ; wait for data (duration)
+    mov         x, osr      side 0    ; move duration to X
+
+loop:
+    ; Turn on LED
+    set         pins, 1     side 1
+    nop                     side 1 [7]
+    nop                     side 1 [7]
+    nop                     side 1 [7]
+    nop                     side 1 [3]  ; Remaining delay
+
+    ; Decrease X
+    jmp         x--, loop   side 0    ; loop until X is zero
+
+    ; Turn off LED
+    set         pins, 0     side 0
+    irq         nowait 0    side 0    ; signal completion
+    jmp         start       side 0
